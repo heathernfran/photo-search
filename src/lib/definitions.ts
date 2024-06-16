@@ -19,8 +19,8 @@ interface AddPhotos {
   photos: Photo[];
 }
 
-interface ClearPhotos {
-  type: "CLEAR_PHOTOS";
+interface ResetSearch {
+  type: "RESET_SEARCH";
 }
 
 interface IncrementPageNumber {
@@ -39,7 +39,7 @@ interface UpdateTotalPages {
 
 export type PhotoSearchAction =
   | AddPhotos
-  | ClearPhotos
+  | ResetSearch
   | IncrementPageNumber
   | UpdateSearchTerm
   | UpdateTotalPages;

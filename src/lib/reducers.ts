@@ -19,18 +19,20 @@ export function photoSearchReducer(
         photos: nextPhotos,
       };
     }
-    case "CLEAR_PHOTOS": {
-      const nextPhotos: Photo[] = [];
-      return {
-        ...state,
-        photos: nextPhotos,
-      };
-    }
     case "INCREMENT_PAGE_NUMBER": {
       const nextPageNumber = state.pageNumber + 1;
       return {
         ...state,
         pageNumber: nextPageNumber,
+      };
+    }
+    case "RESET_SEARCH": {
+      const nextPageNumber = 1;
+      const nextPhotos: Photo[] = [];
+      return {
+        ...state,
+        pageNumber: nextPageNumber,
+        photos: nextPhotos,
       };
     }
     case "UPDATE_SEARCH_TERM": {

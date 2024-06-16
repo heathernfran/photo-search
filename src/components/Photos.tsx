@@ -17,9 +17,8 @@ export default function Photos() {
       return;
     }
 
-    dispatch({ type: "INCREMENT_PAGE_NUMBER" });
-
     try {
+      dispatch({ type: "INCREMENT_PAGE_NUMBER" });
       const results = await getSearchResults(searchTerm, pageNumber);
       dispatch({ type: "ADD_PHOTOS", photos: results.photo });
     } catch (err) {

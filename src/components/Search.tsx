@@ -30,7 +30,7 @@ export default function Search() {
 
     try {
       const results = await getSearchResults(searchTerm, pageNumber);
-      dispatch({ type: "CLEAR_PHOTOS" });
+      dispatch({ type: "RESET_SEARCH" });
       dispatch({ type: "ADD_PHOTOS", photos: results.photo });
       dispatch({ type: "UPDATE_TOTAL_PAGES", totalPages: results.pages });
     } catch (err) {
