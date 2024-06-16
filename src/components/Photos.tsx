@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Dispatch } from "react";
 import { getSearchResults } from "../lib/api";
 import type { PhotoSearchAction, PhotoSearchState } from "../lib/definitions";
+import { buildImageUrl } from "../lib/utilities";
 
 export default function Photos({
   dispatch,
@@ -38,7 +39,9 @@ export default function Photos({
   return (
     <div>
       {photos.map((photo, index) => (
-        <div key={`${photo.id}_${index}`}>{photo.title}</div>
+        <div key={`${photo.id}_${index}`}>
+          <img src={buildImageUrl(photo, "t")} alt={photo.title} />
+        </div>
       ))}
       <button disabled={pageNumber >= totalPages} onClick={handleClick}>
         Load more
