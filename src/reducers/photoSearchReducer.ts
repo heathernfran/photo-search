@@ -1,4 +1,8 @@
-import type { Photo, PhotoSearchAction, PhotoSearchState } from "./definitions";
+import type {
+  Photo,
+  PhotoSearchAction,
+  PhotoSearchState,
+} from "../lib/definitions";
 
 export const photoSearchInitialState: PhotoSearchState = {
   pageNumber: 1,
@@ -7,7 +11,7 @@ export const photoSearchInitialState: PhotoSearchState = {
   totalPages: 0,
 };
 
-export function photoSearchReducer(
+export default function photoSearchReducer(
   state: PhotoSearchState,
   action: PhotoSearchAction
 ): PhotoSearchState {

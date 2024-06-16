@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useReducer } from "react";
-import { photoSearchInitialState, photoSearchReducer } from "../lib/reducers";
+import photoSearchReducer, {
+  photoSearchInitialState,
+} from "../reducers/photoSearchReducer";
 
 export const PhotosContext = createContext({});
 
