@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Dispatch } from "react";
+import { Link } from "react-router-dom";
 import { getSearchResults } from "../lib/api";
 import type { PhotoSearchAction, PhotoSearchState } from "../lib/definitions";
 import { buildImageUrl } from "../lib/utilities";
@@ -39,14 +40,24 @@ export default function Photos({
   return (
     <div>
       {photos.map((photo, index) => (
-        <div key={`${photo.id}_${index}`}>
-          <img src={buildImageUrl(photo, "t")} alt={photo.title} />
-        </div>
+        <Link
+          key={`${photo.id}_${index}`}
+          to={`photos/${photo.id}`}
+          state={{ photo }}
+        >
+          <img
+            src={buildImageUrl(photo, "t")}
+            alt={photo.title}
+            className="thumbnail"
+          />
+        </Link>
       ))}
-      <button disabled={pageNumber >= totalPages} onClick={handleClick}>
-        Load more
-      </button>
-      {error && <div>Error in photos: {error}</div>}
+      <div>
+        <button disabled={pageNumber >= totalPages} onClick={handleClick}>
+          Load more
+        </button>
+        {error && <div>Error in photos: {error}</div>}
+      </div>
     </div>
   );
 }
