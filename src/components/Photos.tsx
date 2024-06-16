@@ -1,17 +1,11 @@
 import { useState } from "react";
-import type { Dispatch } from "react";
 import { Link } from "react-router-dom";
+import usePhotos from "../hooks/usePhotos";
 import { getSearchResults } from "../lib/api";
-import type { PhotoSearchAction, PhotoSearchState } from "../lib/definitions";
 import { buildImageUrl } from "../lib/utilities";
 
-export default function Photos({
-  dispatch,
-  state,
-}: {
-  dispatch: Dispatch<PhotoSearchAction>;
-  state: PhotoSearchState;
-}) {
+export default function Photos() {
+  const { state, dispatch } = usePhotos();
   const { pageNumber, photos, searchTerm, totalPages } = state;
   const [error, setError] = useState("");
 

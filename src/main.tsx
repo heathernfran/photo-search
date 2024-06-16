@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PhotoDetails from "./components/PhotoDetails.tsx";
+import PhotosProvider from "./context/PhotosContext.tsx";
 import App from "./App.tsx";
 import "./index.css";
-import PhotoDetails from "./components/PhotoDetails.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <PhotosProvider>
+      <RouterProvider router={router} />
+    </PhotosProvider>
   </React.StrictMode>
 );

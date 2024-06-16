@@ -1,18 +1,13 @@
 import { useState } from "react";
-import type { ChangeEvent, Dispatch, FormEvent } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+import usePhotos from "../hooks/usePhotos";
 import { getSearchResults } from "../lib/api";
-import type { PhotoSearchAction, PhotoSearchState } from "../lib/definitions";
 
-export default function Search({
-  dispatch,
-  state,
-}: {
-  dispatch: Dispatch<PhotoSearchAction>;
-  state: PhotoSearchState;
-}) {
+export default function Search() {
+  const { state, dispatch } = usePhotos();
   const { pageNumber, searchTerm } = state;
   const [error, setError] = useState("");
-  let timeoutId: NodeJS.Timeout;
+  let timeoutId: ReturnType<typeof setTimeout>;
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     if (timeoutId) {

@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export type Photo = {
   id: string;
   secret: string;
@@ -41,3 +43,8 @@ export type PhotoSearchAction =
   | IncrementPageNumber
   | UpdateSearchTerm
   | UpdateTotalPages;
+
+export type PhotosContextType = {
+  state: PhotoSearchState;
+  dispatch: Dispatch<PhotoSearchAction>;
+};
