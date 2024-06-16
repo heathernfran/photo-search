@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div>
+      <h1>Photo Search</h1>
       <Search />
       <Photos />
     </div>
