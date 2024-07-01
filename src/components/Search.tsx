@@ -5,7 +5,7 @@ import { getSearchResults } from "../lib/api";
 
 export default function Search() {
   const { state, dispatch } = usePhotos();
-  const { pageNumber } = state;
+  const { pageNumber, searchTerm } = state;
   const [error, setError] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -32,7 +32,7 @@ export default function Search() {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="search">Search for photos</label>
-      <input name="search" type="text" />
+      <input defaultValue={searchTerm} name="search" type="text" />
       <button type="submit">Search</button>
       {error && <div>Error in search: {error}</div>}
     </form>
