@@ -21,6 +21,7 @@ interface AddPhotos {
 
 interface ResetSearch {
   type: "RESET_SEARCH";
+  photos: Photo[];
 }
 
 interface IncrementPageNumber {

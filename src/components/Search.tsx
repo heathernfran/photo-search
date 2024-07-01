@@ -22,8 +22,7 @@ export default function Search() {
     try {
       const results = await getSearchResults(nextSearchTerm, pageNumber);
       dispatch({ type: "UPDATE_SEARCH_TERM", searchTerm: nextSearchTerm });
-      dispatch({ type: "RESET_SEARCH" });
-      dispatch({ type: "ADD_PHOTOS", photos: results.photo });
+      dispatch({ type: "RESET_SEARCH", photos: results.photo });
       dispatch({ type: "UPDATE_TOTAL_PAGES", totalPages: results.pages });
     } catch (err) {
       setError(String(err));

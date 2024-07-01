@@ -32,7 +32,7 @@ export default function photoSearchReducer(
     }
     case "RESET_SEARCH": {
       const nextPageNumber = 1;
-      const nextPhotos: Photo[] = [];
+      const nextPhotos: Photo[] = action.photos;
       return {
         ...state,
         pageNumber: nextPageNumber,
